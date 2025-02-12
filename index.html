@@ -16,26 +16,67 @@
             <h1 class="main-title">Amigo Secreto</h1>
             <img src="assets/amigo-secreto.png" alt="Imagem representativa de amigo secreto">
         </header>
-        
-        <section class="input-section">
-            <h2 class="section-title">Digite o nome dos seus amigos</h2>
-            <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
-                <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
-            </div>
-           
-            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
 
-            <div class="button-container">
-                <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
-                    <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
-                    Sortear amigo
-                </button>
-            </div>
+        <section class="input-section">
+
+            <!-- Escolha do Tipo de Resultado-->
+            <span id="escolheSorteio" class="input-section">        
+                <h2 class="section-title">Escolha o Tipo de Resultado que Voce Deseja:</h2>
+                <div>
+                    <br>
+                    <input type="radio" name="tpSorteio" id="tpSorteio" value="0"> Somente seu amigo Secreto
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="tpSorteio" id="tpSorteio" value="1"> Lista de Amigos Secreto 
+                    <br><br><br><br>
+                    <button class="button-draw" onClick="escolhaSorteio()" aria-label="Fazer Novo Sorteio">
+                        <img src="assets/type.png" height="36" width="36" alt="Ícone Tipo Sorteio">
+                        Confirmar
+                    </button>
+                </div>
+            </span>
+    
+
+            <!-- Lista de Resultado-->
+            <span id="listaSorteio" class="input-section" style="display: none;">
+                <span class="input-section">
+                    <h2 id="ordem" class="section-title">Digite o Seu Nome</h2>
+                    <div class="input-wrapper">
+                        <input type="text" id="amigo" class="input-name" placeholder="Digite um Nome">
+                        <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
+                    </div>
+                    <br>
+                    <!-- Numero de Pessoas na Lista -->
+                    <span>Amigos Na Sua Lista: <b><span style="color:red;" id="digitados"> 0 </span></b></span> 
+                
+                    <!-- Lista de Resultados -->
+                    <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
+                    <ul id="resultado" class="result-list" aria-live="polite"></ul>
+
+                    <!-- Nome do Seu Amigo Secreto-->
+                    <div id="seuAmigo" class="result-list" style="display: none;">
+                        <br>
+                        <h3 style="color:blue;">Seu Amigo Secreto é:</h3>
+                        <b><h2 id="nomeSeuAmigo">nonon</h1></b>
+                    </div>
+
+                    <!-- Botão de Sorteio -->
+                    <div id="sorteio" class="button-container" style="display: none;">
+                        <button id="btSorteio" class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto"></button>
+                    </div>
+                    <!-- Botão de Novo Sorteio -->
+                    <div id="novoSorteio" class="button-container" style="display: none;">
+                        <br><br><br>
+                        <button class="button-draw" onClick="window.location.reload()"  aria-label="Fazer Novo Sorteio">
+                            <img src="assets/reload.png" height="36" width="36" alt="Ícone para Novo Sorteio">
+                            Fazer Novo Sorteio
+                        </button>
+                    </div>
+                </span>
+            </span>            
+
+
         </section>
     </main>
-
     <script src="app.js" defer></script>
 </body>
 </html>
